@@ -43,13 +43,13 @@ class Client:
 
     def parse_page(self, text: str):
         soup = bs4.BeautifulSoup(text, 'lxml')
-        container = soup.select('div.dtList.i-dtList.j-card-item')
+        container = soup.select('div.product-card.j-card-item')
         for block in container:
             self.parse_block(block=block)
 
     def parse_block(self, block):
 
-        url_block = block.select_one('a.ref_goods_n_p.j-open-full-product-card')
+        url_block = block.select_one('a.product-card__main.j-open-full-product-card')
         if not url_block:
             logger.error('no url_block')
             return
@@ -61,18 +61,18 @@ class Client:
         else:
             url = 'https://www.wildberries.ru' + url
 
-        name_block = block.select_one('div.dtlist-inner-brand')
+        name_block = block.select_one('div.product-card__brand')
         if not name_block:
             logger.error('no name_block on ' + url)
             return
 
-        brand_name = name_block.select_one('strong.brand-name.c-text-sm')
+        brand_name = name_block.select_one('strong.brand-name')
         if not brand_name:
             logger.error(f'no brand_name on {url}')
             return
         brand_name = brand_name.text.replace('/','').strip()
 
-        goods_name = name_block.select_one('span.goods-name.c-text-sm')
+        goods_name = name_block.select_one('span.goods-name')
         if not goods_name:
             logger.error(f'no goods_name on {url}')
             return
@@ -168,7 +168,6 @@ class Client:
     def run(self):
         max_page = 2
         category_urls = [
-            'https://www.wildberries.ru/catalog/aksessuary/aksessuary-dlya-volos',
             'https://www.wildberries.ru/catalog/aksessuary/dekor-dlya-odezhdy',
             'https://www.wildberries.ru/catalog/aksessuary/bizhuteriya',
             'https://www.wildberries.ru/catalog/aksessuary/veera',
