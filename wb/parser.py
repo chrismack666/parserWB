@@ -168,23 +168,6 @@ class Client:
     def run(self):
         max_page = 2
         category_urls = [
-            'https://www.wildberries.ru/catalog/aksessuary/dekor-dlya-odezhdy',
-            'https://www.wildberries.ru/catalog/aksessuary/bizhuteriya',
-            'https://www.wildberries.ru/catalog/aksessuary/veera',
-            'https://www.wildberries.ru/catalog/aksessuary/galstuki-i-babochki',
-            'https://www.wildberries.ru/catalog/aksessuary/golovnye-ubory',
-            'https://www.wildberries.ru/catalog/aksessuary/zerkaltsa',
-            'https://www.wildberries.ru/catalog/aksessuary/zonty',
-            'https://www.wildberries.ru/catalog/aksessuary/koshelki-i-kreditnitsy',
-            'https://www.wildberries.ru/catalog/aksessuary/maski-dlya-sna',
-            'https://www.wildberries.ru/catalog/aksessuary/nosovye-platki',
-            'https://www.wildberries.ru/catalog/aksessuary/ochki-i-futlyary',
-            'https://www.wildberries.ru/catalog/aksessuary/perchatki-i-varezhki',
-            'https://www.wildberries.ru/catalog/aksessuary/platki-i-sharfy',
-            'https://www.wildberries.ru/catalog/aksessuary/religioznye',
-            'https://www.wildberries.ru/catalog/aksessuary/remni-i-poyasa',
-            'https://www.wildberries.ru/catalog/aksessuary/sumki-i-ryukzaki',
-            'https://www.wildberries.ru/catalog/aksessuary/chasy-i-remeshki'
         ]
         urls = []
         for category_url in category_urls:
